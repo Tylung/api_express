@@ -1,6 +1,7 @@
 // @ts-check
 import express from 'express';
 import router from '../employees/main.js';
+import pino from 'pino';
 
 const app = express();
 
@@ -9,6 +10,10 @@ const app = express();
  * @type { number | string }
  */
 const port = process.env.PORT ?? 3000;
+
+const logger = pino(
+  pino.destination("./logs/output.log")
+);
 
 /**
  * function to add 2 numbers
@@ -24,6 +29,7 @@ const add = (n1, n2) => {
 app.use('/employees', router);
 
 app.get('/', (_req, res) => { 
+    logger.info('enter in hola mundo endpoint')
     res.send("Hola Mundo");
 });
 
@@ -43,9 +49,17 @@ app.get('/json', (_req, res ) => {
         age: 23
     }
 
+    logger.info('enter in json endpoint')
+
     res.json({
       persona
     });
+});
+
+
+app.get('*', (_req, res) => {
+    logger.warn('Not found')
+    res.send('Not Found').status(404)
 });
 
 

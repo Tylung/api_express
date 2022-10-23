@@ -9,6 +9,6 @@ pnpm install # npm install
 Development server
 
 ```bash
-pnpm run dev
+pnpm dev # npm run dev 
 ```
 

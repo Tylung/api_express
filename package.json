@@ -14,10 +14,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "4.18.2"
+    "express": "4.18.2",
+    "pino": "8.7.0"
   },
   "devDependencies": {
     "jsdoc": "3.6.11",
-    "nodemon": "2.0.20"
+    "nodemon": "2.0.20",
+    "pino-pretty": "9.1.1"
   }
 }
