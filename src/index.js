@@ -15,16 +15,6 @@ const logger = pino(
   pino.destination("./logs/output.log")
 );
 
-/**
- * function to add 2 numbers
- * @param {number} n1 - first number
- * @param {number} n2 - second number
- * @returns {number} - result of add
- */
-const add = (n1, n2) => {
-    return n1 + n2
-} 
-
 
 app.use('/employees', router);
 
